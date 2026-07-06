@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Setup from './components/Setup'
 import Study from './components/Study'
 import Complete from './components/Complete'
+import Search from './components/Search'
 import { useProgress } from './hooks/useProgress'
 import { postSession } from './api/kanji'
 import './App.css'
@@ -18,7 +19,8 @@ function getClientId() {
 }
 
 export default function App() {
-  const [screen, setScreen] = useState('setup')  // setup | study | complete
+  const [tab, setTab] = useState('study')          // 'study' | 'dict'
+  const [screen, setScreen] = useState('setup')    // setup | study | complete
   const [session, setSession] = useState(null)
   const [result, setResult] = useState(null)
   const { progress, saveRange } = useProgress()
@@ -42,37 +44,47 @@ export default function App() {
     }).catch(() => {})
   }, [saveRange, session])
 
-  const handleRetryWrong = useCallback(() => {
-    setScreen('study')
-  }, [])
-
-  const handleRestart = useCallback(() => {
-    setScreen('study')
-  }, [])
+  const handleRetryWrong = useCallback(() => { setScreen('study') }, [])
+  const handleRestart    = useCallback(() => { setScreen('study') }, [])
 
   return (
     <div className="app">
-      <Header />
-      {screen === 'setup' && (
-        <Setup progress={progress} onStart={handleStart} />
+      <Header tab={tab} onTab={setTab} />
+
+      {tab === 'dict' && (
+        <div className="dict-page">
+          <div className="dict-pg-head">
+            <span className="dict-pg-title">漢字辞典 — Kanji Dictionary</span>
+            <span className="dict-pg-count">1,046 ENTRIES · N2</span>
+          </div>
+          <Search />
+        </div>
       )}
-      {screen === 'study' && session && (
-        <Study
-          key={`${session.from}-${session.to}-${Date.now()}`}
-          rangeFrom={session.from}
-          rangeTo={session.to}
-          mode={session.mode}
-          onComplete={handleComplete}
-          onBack={() => setScreen('setup')}
-        />
-      )}
-      {screen === 'complete' && result && (
-        <Complete
-          result={result}
-          onRetryWrong={handleRetryWrong}
-          onRestart={handleRestart}
-          onBack={() => setScreen('setup')}
-        />
+
+      {tab === 'study' && (
+        <>
+          {screen === 'setup' && (
+            <Setup progress={progress} onStart={handleStart} />
+          )}
+          {screen === 'study' && session && (
+            <Study
+              key={`${session.from}-${session.to}-${Date.now()}`}
+              rangeFrom={session.from}
+              rangeTo={session.to}
+              mode={session.mode}
+              onComplete={handleComplete}
+              onBack={() => setScreen('setup')}
+            />
+          )}
+          {screen === 'complete' && result && (
+            <Complete
+              result={result}
+              onRetryWrong={handleRetryWrong}
+              onRestart={handleRestart}
+              onBack={() => setScreen('setup')}
+            />
+          )}
+        </>
       )}
     </div>
   )

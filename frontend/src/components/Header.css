@@ -1,10 +1,12 @@
 .header {
-  text-align: center;
-  padding: 20px 0 16px;
   border-bottom: 2px solid var(--ink);
-  margin-bottom: 20px;
-  position: relative;
+  margin-bottom: 24px;
   flex-shrink: 0;
+}
+
+.htop {
+  text-align: center;
+  padding: 18px 0 14px;
 }
 
 .htag {
@@ -33,6 +35,53 @@ h1 span { color: var(--red); }
   font-family: var(--mono);
 }
 
+/* ── tab bar ── */
+.htabs {
+  display: flex;
+  border-top: 1px solid var(--border2);
+}
+
+.htab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-right: 1px solid var(--border2);
+  border-bottom: 2px solid transparent;
+  font-family: var(--mono);
+  color: var(--textlo);
+  transition: color .15s, background .15s, border-color .15s;
+  cursor: pointer;
+  margin-bottom: -2px;
+}
+
+.htab:last-child { border-right: none; }
+.htab:hover { color: var(--ink); background: var(--s1); }
+
+.htab.on {
+  color: var(--red);
+  background: white;
+  border-bottom-color: var(--red);
+}
+
+.htab-jp {
+  font-size: 15px;
+  font-family: 'Hiragino Kaku Gothic Pro', 'Yu Gothic', 'Noto Sans JP', serif;
+  font-weight: 700;
+}
+
+.htab-en {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
 @media (max-width: 400px) {
   h1 { font-size: 22px; }
+  .htab-en { display: none; }
+  .htab-jp { font-size: 18px; }
 }

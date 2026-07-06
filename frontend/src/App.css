@@ -1,10 +1,54 @@
 .app {
   max-width: 640px;
   margin: 0 auto;
-  padding: 16px;
+  padding: 0 16px 32px;
   position: relative;
   z-index: 1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* ── Dictionary tab ── */
+.dict-page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.dict-pg-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 16px;
+}
+
+.dict-pg-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 1px;
+  font-family: 'Hiragino Kaku Gothic Pro', 'Yu Gothic', 'Noto Sans JP', serif;
+}
+
+.dict-pg-count {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--textlo);
+  text-transform: uppercase;
+}
+
+/* When Search is inside the dictionary page, remove the embedded styling */
+.dict-page .search-wrap {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+  flex: 1;
+}
+
+.dict-page .slabel {
+  display: none;
 }

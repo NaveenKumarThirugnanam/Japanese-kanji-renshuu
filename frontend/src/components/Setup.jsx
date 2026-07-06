@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { fetchRanges } from '../api/kanji'
-import Search from './Search'
 import './Setup.css'
 
 const MODES = [
@@ -89,8 +88,6 @@ export default function Setup({ progress, onStart }) {
       </button>
 
       {error && <div className="errbox">{error}</div>}
-
-      <Search />
     </div>
   )
 }

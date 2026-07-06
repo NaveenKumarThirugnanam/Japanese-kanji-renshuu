@@ -49,7 +49,7 @@
 
 .sr-head {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 10px;
   margin-bottom: 8px;
   padding-bottom: 6px;
@@ -58,7 +58,22 @@
 
 /* crimson serial stamp */
 .sr-num { font-size: 10px; font-family: var(--mono); color: var(--red); letter-spacing: 2px; }
-.sr-kanji { font-size: 26px; font-weight: 900; color: var(--ink); }
+.sr-kanji { font-size: 26px; font-weight: 900; color: var(--ink); flex: 1; }
+
+.sr-so-btn {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  color: var(--textlo);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.sr-so-btn:hover { border-color: var(--ink); color: var(--ink); }
+.sr-so-btn.active { border-color: var(--red); color: var(--red); background: rgba(200,0,30,.06); }
 
 .sr-word {
   display: flex;

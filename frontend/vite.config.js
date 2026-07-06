@@ -7,13 +7,14 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
+      devOptions: { enabled: false },
       includeAssets: ['icon.svg'],
       manifest: {
         name: 'N2 漢字 Anki',
         short_name: '漢字 Anki',
         description: 'JLPT N2 Kanji flashcard study app — Shin Kanzen Master',
-        theme_color: '#1a1108',
-        background_color: '#faf6ef',
+        theme_color: '#0e0c0a',
+        background_color: '#f8f3ea',
         display: 'standalone',
         icons: [
           { src: 'icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any maskable' },

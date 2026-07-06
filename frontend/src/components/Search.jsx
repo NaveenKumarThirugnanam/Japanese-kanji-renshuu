@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react'
 import { searchKanji } from '../api/kanji'
+import StrokeOrder from './StrokeOrder'
 import './Search.css'
 
 function highlight(text, q) {
@@ -16,9 +17,11 @@ export default function Search() {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
+  const [openStroke, setOpenStroke] = useState(null)  // entry.number | null
 
   const handleInput = useCallback(async (val) => {
     setQuery(val)
+    setOpenStroke(null)
     if (!val.trim()) { setResults([]); return }
     setLoading(true)
     try {
@@ -30,6 +33,10 @@ export default function Search() {
       setLoading(false)
     }
   }, [])
+
+  function toggleStroke(num) {
+    setOpenStroke(prev => prev === num ? null : num)
+  }
 
   return (
     <div className="search-wrap">
@@ -45,7 +52,7 @@ export default function Search() {
           autoCorrect="off"
           spellCheck={false}
         />
-        <button className="cbtn" onClick={() => { setQuery(''); setResults([]) }}>✕</button>
+        <button className="cbtn" onClick={() => { setQuery(''); setResults([]); setOpenStroke(null) }}>✕</button>
       </div>
 
       {query && (
@@ -63,6 +70,12 @@ export default function Search() {
             <div className="sr-head">
               <span className="sr-num">#{entry.number}</span>
               <span className="sr-kanji">{entry.character}</span>
+              <button
+                className={`sr-so-btn${openStroke === entry.number ? ' active' : ''}`}
+                onClick={() => toggleStroke(entry.number)}
+              >
+                {openStroke === entry.number ? '▼ 筆順' : '筆 Stroke'}
+              </button>
             </div>
             <div>
               {entry.compounds.map((c, i) => (
@@ -72,6 +85,9 @@ export default function Search() {
                 </div>
               ))}
             </div>
+            {openStroke === entry.number && (
+              <StrokeOrder character={entry.character} />
+            )}
           </div>
         ))}
       </div>
