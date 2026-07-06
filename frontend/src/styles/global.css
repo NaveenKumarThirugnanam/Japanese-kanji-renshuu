@@ -1,0 +1,64 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --ink:     #0e0c0a;
+  --bg:      #f8f3ea;
+  --s1:      #f0e8d6;
+  --s2:      #e8dcc6;
+  --s3:      #ddd0b8;
+  --red:     #c8001e;
+  --green:   #1a7040;
+  --text:    #3c3028;
+  --textlo:  #8a7060;
+  --textxlo: #c0b0a0;
+  --border:  rgba(14,12,10,.1);
+  --border2: rgba(14,12,10,.22);
+  --border3: rgba(14,12,10,.38);
+  --shadow:  rgba(14,12,10,.12);
+  --mono:    'Courier New', Consolas, monospace;
+  --radius:  2px;
+
+  /* compatibility — catches any var(--paper/paper2/gold) still in code */
+  --paper:   var(--bg);
+  --paper2:  var(--s1);
+  --gold:    #8a7060;
+  --blue:    var(--ink);
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic Pro', 'Noto Sans JP', 'Yu Gothic', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* washi grain */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(14,12,10,.018) 3px, rgba(14,12,10,.018) 4px),
+    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(14,12,10,.025) 80px, rgba(14,12,10,.025) 81px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+}

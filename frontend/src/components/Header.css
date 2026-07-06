@@ -1,0 +1,38 @@
+.header {
+  text-align: center;
+  padding: 20px 0 16px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.htag {
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--textlo);
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--ink);
+}
+
+h1 span { color: var(--red); }
+
+.hsub {
+  font-size: 11px;
+  color: var(--textlo);
+  letter-spacing: 3px;
+  margin-top: 4px;
+  font-family: var(--mono);
+}
+
+@media (max-width: 400px) {
+  h1 { font-size: 22px; }
+}

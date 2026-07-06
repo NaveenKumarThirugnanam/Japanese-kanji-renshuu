@@ -1,0 +1,86 @@
+.complete {
+  text-align: center;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.big-icon {
+  font-size: 64px;
+  margin-bottom: 12px;
+  animation: pop .6s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.comp-title { font-size: 22px; font-weight: 900; margin-bottom: 6px; color: var(--ink); }
+.comp-range { font-size: 11px; color: var(--textlo); letter-spacing: 3px; margin-bottom: 20px; font-family: var(--mono); }
+
+.comp-stats {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 24px;
+}
+
+.cstat .big { font-size: 38px; font-weight: 700; display: block; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.cstat .sm { font-size: 10px; color: var(--textlo); letter-spacing: 2px; font-family: var(--mono); text-transform: uppercase; }
+
+.wrong-list {
+  background: var(--s1);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 20px;
+  text-align: left;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.wl-title {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+
+.wl-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.wl-item:last-child { border: none; }
+.wl-read { color: var(--textlo); font-size: 12px; font-family: var(--mono); }
+
+.btn-group { display: flex; flex-direction: column; gap: 8px; }
+
+.actbtn {
+  padding: 13px;
+  background: var(--ink);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 13px;
+  letter-spacing: 2px;
+  transition: background .15s;
+  font-family: var(--mono);
+  font-weight: 700;
+}
+.actbtn:hover { background: var(--text); }
+
+.actbtn.sec {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border2);
+}
+.actbtn.sec:hover { background: var(--s1); border-color: var(--border3); }

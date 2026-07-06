@@ -1,0 +1,70 @@
+.so-loading {
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--textxlo);
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 8px 0;
+}
+
+.so-wrap {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.so-label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--red);
+  font-family: var(--mono);
+  text-transform: uppercase;
+}
+
+.so-svg svg {
+  display: block;
+  background: white;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 6px;
+}
+
+/* ink strokes on white */
+.so-svg path {
+  stroke: var(--ink) !important;
+  fill: none !important;
+  stroke-width: 3 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+/* crimson stroke order numbers — the hanko stamp on each stroke */
+.so-svg text {
+  fill: var(--red) !important;
+  font-size: 7px !important;
+  font-family: var(--mono) !important;
+}
+
+.so-btn {
+  padding: 5px 16px;
+  background: transparent;
+  border: 1px solid var(--border3);
+  border-radius: var(--radius);
+  font-size: 10px;
+  font-family: var(--mono);
+  color: var(--ink);
+  letter-spacing: 1px;
+  transition: all .15s;
+}
+.so-btn:hover:not(:disabled) {
+  background: var(--s1);
+  border-color: var(--ink);
+}
+.so-btn:disabled {
+  opacity: .4;
+  cursor: default;
+}

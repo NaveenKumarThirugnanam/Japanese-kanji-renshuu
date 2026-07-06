@@ -1,0 +1,90 @@
+.search-wrap {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border2);
+}
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.search-inp {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  background: white;
+  font-size: 16px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s, box-shadow .15s;
+}
+.search-inp:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 2px rgba(14,12,10,.06);
+}
+.search-inp::placeholder { color: var(--textxlo); font-size: 13px; }
+
+.sr-count {
+  font-size: 10px;
+  font-family: var(--mono);
+  letter-spacing: 2px;
+  color: var(--textlo);
+  margin-bottom: 8px;
+  min-height: 14px;
+}
+
+.search-results { max-height: 360px; overflow-y: auto; }
+
+.sr-entry {
+  background: white;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 6px;
+}
+
+.sr-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* crimson serial stamp */
+.sr-num { font-size: 10px; font-family: var(--mono); color: var(--red); letter-spacing: 2px; }
+.sr-kanji { font-size: 26px; font-weight: 900; color: var(--ink); }
+
+.sr-word {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.sr-word:last-child { border: none; }
+
+.sr-read { color: var(--textlo); font-size: 12px; font-family: var(--mono); }
+
+/* crimson highlight on search match */
+.sr-word mark {
+  background: rgba(200,0,30,.12);
+  border-radius: 1px;
+  padding: 0 2px;
+  color: inherit;
+}
+
+.sr-none {
+  text-align: center;
+  color: var(--textlo);
+  font-size: 11px;
+  padding: 20px;
+  font-family: var(--mono);
+  letter-spacing: 2px;
+}
