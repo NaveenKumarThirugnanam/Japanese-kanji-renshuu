@@ -31,8 +31,8 @@ class KanjiViewSet(viewsets.ReadOnlyModelViewSet):
             .prefetch_related('compounds')
             .filter(
                 Q(character=q) |
-                Q(compounds__word__contains=q) |
-                Q(compounds__reading__contains=q)
+                Q(compounds__word__icontains=q) |
+                Q(compounds__reading__icontains=q)
             )
             .distinct()[:30]
         )

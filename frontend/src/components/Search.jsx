@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react'
+import { toHiragana } from 'wanakana'
 import { searchKanji } from '../api/kanji'
 import StrokeOrder from './StrokeOrder'
 import './Search.css'
@@ -80,8 +81,8 @@ export default function Search() {
             <div>
               {entry.compounds.map((c, i) => (
                 <div key={i} className="sr-word">
-                  <span dangerouslySetInnerHTML={{ __html: highlight(c.word, query) }} />
-                  <span className="sr-read" dangerouslySetInnerHTML={{ __html: highlight(c.reading, query) }} />
+                  <span dangerouslySetInnerHTML={{ __html: highlight(c.word, toHiragana(query)) }} />
+                  <span className="sr-read" dangerouslySetInnerHTML={{ __html: highlight(c.reading, toHiragana(query)) }} />
                 </div>
               ))}
             </div>

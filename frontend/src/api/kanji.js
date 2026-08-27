@@ -1,3 +1,5 @@
+import { toHiragana } from 'wanakana'
+
 const BASE = '/api'
 
 async function get(path) {
@@ -15,8 +17,9 @@ export async function fetchKanjiRange(from, to) {
 }
 
 export async function searchKanji(q) {
-  if (!q.trim()) return []
-  return get(`/kanji/search/?q=${encodeURIComponent(q.trim())}`)
+  const trimmed = q.trim()
+  if (!trimmed) return []
+  return get(`/kanji/search/?q=${encodeURIComponent(toHiragana(trimmed))}`)
 }
 
 export async function fetchStrokeOrder(character) {
